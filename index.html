@@ -128,6 +128,30 @@ footer{padding-block:28px;font-size:13px;color:var(--ink-soft);display:flex;just
   .hero{padding-block:40px 56px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* formulario de informes */
+.informes{padding-block:72px}
+.informes .head{max-width:60ch;margin-bottom:36px}
+.informes h2{font-size:clamp(32px,5vw,48px)}
+.informes .head p{color:var(--ink-soft);font-size:18px;margin:16px 0 0}
+form.inf{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px;max-width:860px}
+.f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label,.f legend{font-size:13px;font-weight:600;letter-spacing:.04em}
+.f label small{font-weight:400;color:var(--ink-soft)}
+.f input,.f select,.f textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper-2);border:1px solid var(--rule);border-radius:0;padding:13px 14px;width:100%;min-width:0}
+.f textarea{min-height:96px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.f fieldset{border:0;padding:0;margin:0;display:flex;gap:12px;flex-wrap:wrap}
+.f fieldset label{font-weight:500;display:flex;align-items:center;gap:8px;border:1px solid var(--rule);padding:12px 16px;cursor:pointer;background:var(--paper-2)}
+.f fieldset input{width:auto;accent-color:var(--gold)}
+.f fieldset label:has(input:checked){border-color:var(--gold)}
+.inf .err{grid-column:1/-1;color:#b3402f;font-size:14px;margin:0}
+.inf .go{grid-column:1/-1;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.inf button.send{font:inherit;font-weight:600;font-size:16px;padding:15px 28px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);cursor:pointer}
+.inf button.send:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.inf .hint{font-size:14px;color:var(--ink-soft)}
+@media(max-width:760px){form.inf{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -140,7 +164,7 @@ footer{padding-block:28px;font-size:13px;color:var(--ink-soft);display:flex;just
       <span><span class="name">Torres Sánchez</span><span class="sub">Abogados</span></span>
     </a>
     <nav aria-label="Secciones">
-      <a href="#servicios">Servicios</a><a href="#compraventas">Compraventas</a><a href="#socios">Socios</a><a href="#contacto">Contacto</a>
+      <a href="#servicios">Servicios</a><a href="#compraventas">Compraventas</a><a href="#socios">Socios</a><a href="#informes">Informes</a><a href="#contacto">Contacto</a>
     </nav>
   </header>
 </div>
@@ -152,7 +176,7 @@ footer{padding-block:28px;font-size:13px;color:var(--ink-soft);display:flex;just
     <p class="verbs">Constituye · Formaliza · Protege</p>
     <div class="bar"></div>
     <p class="sum">Despacho de abogados en Chihuahua especializado en derecho corporativo y propiedad industrial. También te acompañamos en la compraventa de inmuebles hasta la escritura.</p>
-    <div class="btns"><a class="btn solid" href="#contacto">Agenda tu asesoría</a><a class="btn" href="#servicios">Ver servicios</a></div>
+    <div class="btns"><a class="btn solid" href="#informes">Agenda tu asesoría</a><a class="btn" href="#servicios">Ver servicios</a></div>
   </div>
 
   <section class="band dark-band" id="servicios">
@@ -212,6 +236,41 @@ footer{padding-block:28px;font-size:13px;color:var(--ink-soft);display:flex;just
     </div>
   </section>
 
+  <section class="band informes" id="informes">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Solicita informes</p>
+        <h2>Cuéntanos qué necesitas</h2>
+        <p>Llena estos datos y se abre WhatsApp con tu mensaje listo para enviar al licenciado que elijas.</p>
+      </div>
+      <form class="inf" id="form-informes" novalidate>
+        <div class="f"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" type="text" autocomplete="name" required></div>
+        <div class="f"><label for="f-empresa">Empresa <small>(si aplica)</small></label><input id="f-empresa" name="empresa" type="text" autocomplete="organization"></div>
+        <div class="f"><label for="f-servicio">Servicio de interés</label>
+          <select id="f-servicio" name="servicio" required>
+            <option value="">Elige una opción</option>
+            <option>Registro de marca</option>
+            <option>Constitución de empresa</option>
+            <option>Actas de asamblea</option>
+            <option>Poderes notariales</option>
+            <option>Contratos y convenios</option>
+            <option>Gobierno corporativo</option>
+            <option>Compraventa de inmuebles</option>
+            <option>Trámite de escrituración</option>
+            <option>Otro</option>
+          </select></div>
+        <div class="f"><label for="f-ciudad">Ciudad</label><input id="f-ciudad" name="ciudad" type="text" autocomplete="address-level2" required></div>
+        <div class="f full"><label for="f-coment">Comentarios <small>(opcional)</small></label><textarea id="f-coment" name="comentarios" placeholder="Cuéntanos en breve tu caso"></textarea></div>
+        <div class="f full"><fieldset><legend>Quiero hablar con</legend>
+          <label><input type="radio" name="lic" value="526141970076|Sebastián" checked> Lic. Sebastián Sánchez</label>
+          <label><input type="radio" name="lic" value="526142859250|Saúl"> Lic. Saúl Torres</label>
+        </fieldset></div>
+        <p class="err" id="inf-err" role="alert" hidden></p>
+        <div class="go"><button class="send" type="submit">Enviar por WhatsApp</button><span class="hint">No se envía nada hasta que le des enviar en WhatsApp.</span></div>
+      </form>
+    </div>
+  </section>
+
   <section class="band dark-band contact" id="contacto">
     <div class="wrap">
       <p class="eyebrow">Agenda tu asesoría</p>
@@ -234,6 +293,19 @@ document.querySelectorAll('.copy').forEach(function(b){
     function done(){b.textContent='Copiado';setTimeout(function(){b.textContent=o},1500)}
     try{navigator.clipboard.writeText(t).then(done,function(){})}catch(e){}
   });
+});
+
+document.getElementById('form-informes').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target,g=function(n){return (f.elements[n].value||'').trim()},err=document.getElementById('inf-err');
+  var falta=[];if(!g('nombre'))falta.push('nombre');if(!g('servicio'))falta.push('servicio de interés');if(!g('ciudad'))falta.push('ciudad');
+  if(falta.length){err.textContent='Falta llenar: '+falta.join(', ')+'.';err.hidden=false;return}
+  err.hidden=true;
+  var lic=f.elements['lic'].value.split('|');
+  var t='Hola, Lic. '+lic[1]+'. Me gustaría recibir informes.\n\nNombre: '+g('nombre')+'\nEmpresa: '+(g('empresa')||'No aplica')+'\nServicio de interés: '+g('servicio')+'\nCiudad: '+g('ciudad');
+  if(g('comentarios'))t+='\nComentarios: '+g('comentarios');
+  var url='https://wa.me/'+lic[0]+'?text='+encodeURIComponent(t);
+  if(!window.open(url,'_blank'))window.location.href=url;
 });
 </script>
 
