@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Torres Sánchez Abogados: derecho corporativo, propiedad industrial y compraventas con escrituración.">
+<title>Torres Sánchez Abogados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Layout: cream hero → deep-green services band → cream socios → green contact. Brand taken from the supplied logo and flyer. */
+:root{
+  --paper:#f2f0eb; --paper-2:#e9e6de; --ink:#1f3a33; --ink-soft:#4b5f59;
+  --gold:#8c7a4b; --gold-soft:#a8955f; --rule:#cfcabd;
+  --band:#1f3a33; --band-2:#2a4a41; --band-fg:#f2f0eb; --band-soft:#b9c4bf; --band-gold:#bda76d;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#16231f; --paper-2:#1c2c27; --ink:#eeebe3; --ink-soft:#a9b6b1; --gold:#bda76d; --gold-soft:#bda76d; --rule:#2f433c;
+  --band:#0f1a17; --band-2:#192924; --band-fg:#eeebe3; --band-soft:#a9b6b1; --band-gold:#bda76d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#16231f; --paper-2:#1c2c27; --ink:#eeebe3; --ink-soft:#a9b6b1; --gold:#bda76d; --gold-soft:#bda76d; --rule:#2f433c;
+  --band:#0f1a17; --band-2:#192924; --band-fg:#eeebe3; --band-soft:#a9b6b1; --band-gold:#bda76d; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+.wrap{max-width:1080px;margin:0 auto}
+/* bands span the full width, so inner wrappers carry the gutter */
+.band{margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-block:72px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dark-band{background:var(--band);color:var(--band-fg)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance;line-height:1.1}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 18px}
+.dark-band .eyebrow{color:var(--band-gold)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* header */
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none}
+.brand svg{width:40px;height:auto;flex:none}
+.brand .rule{width:1px;align-self:stretch;background:var(--rule)}
+.brand .name{font-family:var(--serif);font-size:26px;line-height:1}
+.brand .sub{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--ink-soft);margin-top:7px}
+nav{display:flex;gap:26px;font-size:14px}
+nav a{text-decoration:none;color:var(--ink-soft)}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:64px 80px}
+.hero .lead{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px}
+.hero h1{font-size:clamp(56px,11vw,132px);letter-spacing:-.02em;line-height:.95}
+.hero .verbs{margin:26px 0 0;font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.hero .bar{width:56px;height:3px;background:var(--gold);margin:22px 0 28px}
+.hero p.sum{max-width:56ch;color:var(--ink-soft);font-size:18px;margin:0 0 34px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 24px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--ink);color:var(--ink)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn:hover{border-color:var(--gold)}
+.btn.solid:hover{background:var(--gold);color:#fff}
+
+/* services */
+.svc-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.svc-head h2{font-size:clamp(32px,5vw,48px);max-width:18ch}
+.svc-head p{max-width:42ch;color:var(--band-soft);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:var(--band-2);border:1px solid var(--band-2)}
+.svc{background:var(--band);padding:28px;display:flex;gap:18px;min-width:0}
+.svc .ico{flex:none;width:44px;height:44px;border:1px solid var(--band-gold);border-radius:50%;display:grid;place-items:center;color:var(--band-gold)}
+.svc .ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;line-height:1.35}
+.svc p{margin:0;font-size:15px;color:var(--band-soft)}
+.svc.new{background:var(--band-2)}
+.tag{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--band-gold);color:var(--band-gold);padding:2px 8px;margin-left:8px;vertical-align:2px}
+.callout{margin-top:44px;border:1px solid var(--band-gold);padding:26px;text-align:center;font-family:var(--serif);font-size:clamp(22px,3.4vw,32px);background:var(--band-2)}
+
+/* compraventa detail */
+.cv{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.cv h2{font-size:clamp(32px,5vw,48px)}
+.cv .intro{color:var(--ink-soft);font-size:18px;margin:18px 0 0;max-width:46ch}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;border-top:1px solid var(--rule)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.steps li::before{content:counter(s);font-family:var(--serif);font-size:26px;color:var(--gold);line-height:1}
+.steps b{display:block;font-weight:600}
+.steps span{color:var(--ink-soft);font-size:15px}
+
+/* socios */
+.socios h2{font-size:clamp(32px,5vw,48px);margin-bottom:40px}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
+.person{background:var(--paper-2);padding:32px;min-width:0}
+.person .role{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.person h3{font-size:34px;margin:10px 0 22px}
+.tel{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tel .num{font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.tel .pending{color:var(--ink-soft);font-style:italic}
+.copy{font:inherit;font-size:13px;padding:6px 12px;background:none;border:1px solid var(--rule);color:var(--ink-soft);cursor:pointer}
+.copy:hover{border-color:var(--gold);color:var(--ink)}
+.person .wa{display:inline-block;margin-top:16px;font-size:14px;color:var(--gold);font-weight:600}
+
+/* contact */
+.contact{text-align:center}
+.contact .eyebrow{text-align:center}
+.contact h2{font-size:clamp(32px,5vw,52px);margin-bottom:28px}
+.lines{display:flex;gap:14px 40px;justify-content:center;flex-wrap:wrap;font-size:clamp(20px,3.4vw,28px);font-variant-numeric:tabular-nums}
+.contact .copy{color:var(--band-soft);border-color:var(--band-2);margin-left:8px}
+.contact .copy:hover{color:var(--band-fg);border-color:var(--band-gold)}
+.note{color:var(--band-soft);font-size:14px;margin:26px 0 0}
+footer{padding-block:28px;font-size:13px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media(max-width:760px){
+  nav{display:none}
+  .cv{grid-template-columns:1fr;gap:36px}
+  .band{padding-block:56px}
+  .hero{padding-block:40px 56px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <a class="brand" href="#inicio" aria-label="Torres Sánchez Abogados, inicio">
+      <svg viewBox="0 0 40 46" aria-hidden="true"><rect x="0" y="0" width="40" height="8" fill="var(--ink)"/><rect x="7" y="12" width="10" height="34" fill="var(--ink)"/><rect x="21" y="12" width="10" height="34" fill="var(--gold)"/></svg>
+      <span class="rule"></span>
+      <span><span class="name">Torres Sánchez</span><span class="sub">Abogados</span></span>
+    </a>
+    <nav aria-label="Secciones">
+      <a href="#servicios">Servicios</a><a href="#compraventas">Compraventas</a><a href="#socios">Socios</a><a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+</div>
+
+<main id="inicio">
+  <div class="wrap hero">
+    <p class="lead">Soluciones legales para tu</p>
+    <h1>Empresa<span style="color:var(--gold)">.</span></h1>
+    <p class="verbs">Constituye · Formaliza · Protege</p>
+    <div class="bar"></div>
+    <p class="sum">Despacho de abogados en Chihuahua especializado en derecho corporativo y propiedad industrial. También te acompañamos en la compraventa de inmuebles hasta la escritura.</p>
+    <div class="btns"><a class="btn solid" href="#contacto">Agenda tu asesoría</a><a class="btn" href="#servicios">Ver servicios</a></div>
+  </div>
+
+  <section class="band dark-band" id="servicios">
+    <div class="wrap">
+      <div class="svc-head">
+        <div><p class="eyebrow">Servicios</p><h2>Tu empresa, en orden y protegida</h2></div>
+        <p>Corporativo y propiedad industrial, más el trámite completo de tus compraventas.</p>
+      </div>
+      <div class="grid">
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 16V8h3.2a2.3 2.3 0 0 1 0 4.6H9.5M12.6 12.6 15 16"/></svg></div><div><h3>Registro de marca</h3><p>Búsqueda, solicitud y seguimiento ante el IMPI. Exclusividad en todo el país.</p></div></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 21V9l8-5 8 5v12M4 21h16M9 21v-6h6v6"/></svg></div><div><h3>Constitución de empresas</h3><p>S.A. de C.V., S. de R.L., SAPI y SAS, con estatutos a la medida.</p></div></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6"/></svg></div><div><h3>Actas de asamblea</h3><p>Ordinarias y extraordinarias, sesiones de consejo y protocolización.</p></div></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19zM14 7l3 3"/></svg></div><div><h3>Poderes notariales</h3><p>Pleitos y cobranzas, actos de administración y de dominio.</p></div></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 4v16M5 20h14M5 7h14M5 7l-2 6a3 3 0 0 0 4 0zM19 7l-2 6a3 3 0 0 0 4 0z"/></svg></div><div><h3>Contratos y convenios</h3><p>Prestación de servicios, compraventa, confidencialidad y más.</p></div></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4"/></svg></div><div><h3>Gobierno corporativo</h3><p>Libros corporativos, aumentos de capital y cesión de acciones.</p></div></article>
+        <article class="svc new"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"/></svg></div><div><h3>Compraventas<span class="tag">Nuevo</span></h3><p>Asesoría y contratos para comprar o vender inmuebles con seguridad jurídica.</p></div></article>
+        <article class="svc new"><div class="ico"><svg viewBox="0 0 24 24"><path d="M7 3h10v18l-2.5-1.5L12 21l-2.5-1.5L7 21zM10 8h4M10 12h4"/></svg></div><div><h3>Trámite de compraventa<span class="tag">Nuevo</span></h3><p>Escrituración completa: revisión de documentos, notaría, impuestos y registro.</p></div></article>
+      </div>
+      <div class="callout">Tu empresa, en orden y protegida</div>
+    </div>
+  </section>
+
+  <section class="band" id="compraventas">
+    <div class="wrap cv">
+      <div>
+        <p class="eyebrow">Compraventas y escrituración</p>
+        <h2>Compra o vende con la escritura en regla</h2>
+        <p class="intro">Nos encargamos del trámite de principio a fin para que la propiedad quede a tu nombre, libre de problemas.</p>
+      </div>
+      <ol class="steps">
+        <li><div><b>Revisión de documentos</b><span>Título de propiedad, gravámenes, pagos de predial y agua.</span></div></li>
+        <li><div><b>Contrato de compraventa</b><span>Redactado a la medida de lo que acuerdan comprador y vendedor.</span></div></li>
+        <li><div><b>Escrituración ante notario</b><span>Coordinamos la firma, el avalúo y el pago de impuestos.</span></div></li>
+        <li><div><b>Inscripción en el Registro Público</b><span>Seguimiento hasta tener la escritura inscrita.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band socios" id="socios" style="background:var(--paper-2);padding-block:72px">
+    <div class="wrap">
+      <p class="eyebrow">Socios</p>
+      <h2>Habla directo con quien lleva tu caso</h2>
+      <div class="pair" style="margin-top:40px">
+        <article class="person" style="background:var(--paper)">
+          <span class="role">Socio</span>
+          <h3>Sebastián Sánchez</h3>
+          <div class="tel"><span class="num" id="n-seb">+52 614 197 0076</span><button class="copy" data-copy="+52 614 197 0076" type="button">Copiar</button></div>
+          <a class="wa" href="https://wa.me/526141970076">Escribir por WhatsApp →</a>
+        </article>
+        <article class="person" style="background:var(--paper)">
+          <span class="role">Socio</span>
+          <h3>Saúl Torres</h3>
+          <div class="tel"><span class="num">+52 614 285 9250</span><button class="copy" data-copy="+52 614 285 9250" type="button">Copiar</button></div>
+          <a class="wa" href="https://wa.me/526142859250">Escribir por WhatsApp →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark-band contact" id="contacto">
+    <div class="wrap">
+      <p class="eyebrow">Agenda tu asesoría</p>
+      <h2>Cuéntanos qué necesita tu empresa</h2>
+      <div class="lines">
+        <span>(614) 285-92-50 <button class="copy" data-copy="(614) 285-92-50" type="button">Copiar</button></span>
+        <span>(614) 197 00 76 <button class="copy" data-copy="(614) 197 00 76" type="button">Copiar</button></span>
+      </div>
+      <p class="note">Corporativo · Propiedad Industrial · Compraventas</p>
+    </div>
+  </section>
+</main>
+
+<div class="wrap"><footer><span>© Torres Sánchez Abogados</span><span>Corporativo · Propiedad Industrial</span></footer></div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.dataset.copy,o=b.textContent;
+    function done(){b.textContent='Copiado';setTimeout(function(){b.textContent=o},1500)}
+    try{navigator.clipboard.writeText(t).then(done,function(){})}catch(e){}
+  });
+});
+</script>
+
+</body>
+</html>
