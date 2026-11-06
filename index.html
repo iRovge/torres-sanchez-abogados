@@ -260,7 +260,7 @@ footer{padding-block:48px 28px}
       <div class="head">
         <p class="eyebrow">Contacto</p>
         <h2 class="t">Solicita informes</h2>
-        <p>Cuéntanos qué necesitas. Al enviar, se abre WhatsApp con tu mensaje listo para el licenciado que elijas. Te respondemos el mismo día hábil.</p>
+        <p>Cuéntanos qué necesitas. Al enviar, se abre WhatsApp con tu mensaje listo para enviarlo al despacho. Te respondemos el mismo día hábil.</p>
       </div>
       <form class="inf" id="form-informes" novalidate>
         <div class="f"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" type="text" autocomplete="name" required></div>
@@ -281,10 +281,6 @@ footer{padding-block:48px 28px}
           </select></div>
         <div class="f"><label for="f-ciudad">Ciudad</label><input id="f-ciudad" name="ciudad" type="text" autocomplete="address-level2" required></div>
         <div class="f full"><label for="f-coment">Comentarios <small>(opcional)</small></label><textarea id="f-coment" name="comentarios" placeholder="Cuéntanos en breve tu caso"></textarea></div>
-        <div class="f full"><fieldset><legend>Quiero hablar con</legend>
-          <label><input type="radio" name="lic" value="526141970076|Sebastián" checked> Lic. Sebastián Sánchez</label>
-          <label><input type="radio" name="lic" value="526142859250|Saúl"> Lic. Saúl Torres</label>
-        </fieldset></div>
         <p class="err" id="inf-err" role="alert" hidden></p>
         <div class="go"><button class="send" type="submit">Enviar por WhatsApp</button><span class="hint">No se envía nada hasta que presiones enviar en WhatsApp.</span></div>
       </form>
@@ -305,8 +301,7 @@ footer{padding-block:48px 28px}
     <div class="fcols">
       <div><p class="fname">Torres Sánchez Abogados</p><p>Corporativo · Propiedad intelectual</p><p>Chihuahua, Chih. · Atención con cita</p></div>
       <div><h4>Contacto</h4><ul>
-        <li>Lic. Sebastián Sánchez · <a href="tel:+526141970076">614 197 0076</a></li>
-        <li>Lic. Saúl Torres · <a href="tel:+526142859250">614 285 9250</a></li>
+        <li><a href="tel:+526141970076">614 197 0076</a></li>
       </ul></div>
       <div><h4>Enlaces</h4><ul>
         <li><a href="https://protegetumarcatb.pages.dev/" rel="noopener">Registro de marca</a></li>
@@ -324,10 +319,9 @@ document.getElementById('form-informes').addEventListener('submit',function(e){
   var falta=[];if(!g('nombre'))falta.push('nombre');if(!g('servicio'))falta.push('servicio de interés');if(!g('ciudad'))falta.push('ciudad');
   if(falta.length){err.textContent='Falta llenar: '+falta.join(', ')+'.';err.hidden=false;return}
   err.hidden=true;
-  var lic=f.elements['lic'].value.split('|');
-  var t='Hola, Lic. '+lic[1]+'. Me gustaría recibir informes.\n\nNombre: '+g('nombre')+'\nEmpresa: '+(g('empresa')||'No aplica')+'\nServicio de interés: '+g('servicio')+'\nCiudad: '+g('ciudad');
+  var t='Hola, me gustaría recibir informes.\n\nNombre: '+g('nombre')+'\nEmpresa: '+(g('empresa')||'No aplica')+'\nServicio de interés: '+g('servicio')+'\nCiudad: '+g('ciudad');
   if(g('comentarios'))t+='\nComentarios: '+g('comentarios');
-  var url='https://wa.me/'+lic[0]+'?text='+encodeURIComponent(t);
+  var url='https://wa.me/526141970076?text='+encodeURIComponent(t);
   if(!window.open(url,'_blank'))window.location.href=url;
 });
 </script>
